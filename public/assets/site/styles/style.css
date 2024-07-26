@@ -1,0 +1,42 @@
+.legenda-destaque-home figcaption {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.legenda-destaque-home a:hover {
+    color: #888;
+    text-decoration: none;
+}
+.social-links {
+    margin-top: 25px;
+    color: #B6B6B6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.social-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.social-item svg {
+    width: 22px;
+    fill: #B6B6B6;
+}
+.social-item a {
+    color: #B6B6B6;
+    text-decoration: none;
+}
+.social-item a:hover {
+    color: #888;
+    text-decoration: none;
+}
+.projeto-details {
+    color: #B6B6B6;
+    font-size: 16px !important;
+}
+.projeto-details p {
+    color: #B6B6B6;
+    font-size: 16px !important;
+    margin-bottom: 10px;
+}
