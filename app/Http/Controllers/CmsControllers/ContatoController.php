@@ -23,7 +23,10 @@ class ContatoController extends Controller
 
     public function edit(Request $request) {
         $contato = Contato::findOrFail($request->id);
-        $this->dadosPagina['tituloPagina'] = 'Mensagem de: '.$contato->nome;
+
+        $contato->status = true;
+        $contato->save();
+
         $this->dadosPagina['contato'] = $contato;
         return view('cms.paginas.contatos.edit', $this->dadosPagina);
     }

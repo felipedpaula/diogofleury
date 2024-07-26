@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('tel')->nullable();
             $table->text('mensagem');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

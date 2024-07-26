@@ -24,4 +24,8 @@ class Contato extends Model
     public function getContatosPaginados(int $perPage = 5) {
         return Contato::orderBy('created_at', 'desc')->paginate($perPage);
     }
+
+    public function getNovosContatos() {
+        return Contato::where('status', false)->get();
+    }
 }

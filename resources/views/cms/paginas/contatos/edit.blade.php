@@ -1,10 +1,10 @@
 @extends('cms.layouts.index')
 
-@section('title', 'Default')
+@section('title', 'Contato')
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Default</h1>
+    <h1 class="h3 mb-4 text-gray-800">Mensagem de Contato</h1>
 
     <div class="row mb-4">
         <div class="col-6">
