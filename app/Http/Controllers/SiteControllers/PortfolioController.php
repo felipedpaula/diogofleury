@@ -17,9 +17,14 @@ class PortfolioController extends Controller
         $this->imagem = new ImagemGaleria();
     }
 
-    public function index()
-    {
-        $this->dadosPagina['projetos'] = $this->projeto->getProjetos();
+    public function indexFilm() {
+        $this->dadosPagina['projetos'] = $this->projeto->getProjetosFilm();
+
+        return view('site.paginas.portfolio.index', $this->dadosPagina);
+    }
+
+    public function indexPhotography() {
+        $this->dadosPagina['projetos'] = $this->projeto->getProjetosPhotography();
 
         return view('site.paginas.portfolio.index', $this->dadosPagina);
     }

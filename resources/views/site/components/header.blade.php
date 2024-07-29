@@ -1,7 +1,7 @@
 <header id="main-header">
     <a href="/" class="brand">
         <span class="name">Diogo Fleury</span>
-        <span class="title hidden-xs">Fotografia</span>
+        {{-- <span class="title hidden-xs">Film &nbsp;|&nbsp; Photography</span> --}}
     </a>
     <div class="responsive-nav">
         <div class="bar"></div>
@@ -13,7 +13,10 @@
             <li><a href="/">Home</a>
             </li>
 
-            <li><a href="/portfolio">Portfólio</a>
+            <li><a href="/film">Film</a>
+            </li>
+
+            <li><a href="/photography">Photography</a>
             </li>
 
             {{-- <li>
@@ -26,10 +29,10 @@
                 </ul>
             </li> --}}
 
-            <li><a href="/sobre">Sobre mim</a>
+            <li><a href="/sobre">About</a>
             </li>
 
-            <li><a href="/contato">Contato</a>
+            <li><a href="/contato">Contact</a>
             </li>
         </ul>
     </nav>

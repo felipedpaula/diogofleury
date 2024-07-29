@@ -32,6 +32,13 @@
                     <!-- Primeira Coluna -->
                     <div class="col-md-6 col-sm-12">
                         <div class="form-group">
+                            <label for="tipo">Tipo:</label>
+                            <select name="tipo" class="form-control" id="tipo">
+                                <option {{$projeto->tipo === 1 ? 'selected="selected"' : ''}} value="1">Foto</option>
+                                <option {{$projeto->tipo === 2 ? 'selected="selected"' : ''}} value="2">Vídeo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="titulo">Título:</label>
                             <input name="titulo" type="text" class="form-control" id="titulo" value="{{$projeto->titulo}}">
                         </div>
@@ -60,10 +67,19 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="img_src">Imagem de destaque:</label>
+                            <label for="img_src">Thumb de destaque:</label><br>
                             <img  src="{{asset($projeto->img_src)}}" alt="preview" width="220px" height="300px" id="preview" class="img-fluid"/>
                             <input type="file" name="img_src" class="form-control" id="img_src">
                         </div>
+                        @if ($projeto->tipo === 2)
+                            <div class="form-group">
+                                <label for="video_src">Vídeo</label><br>
+                                <video id="video" width="300">
+                                    <source src="{{ asset($projeto->video_src) }}" type="video/mp4">
+                                </video>
+                                <input type="file" name="video_src" class="form-control" id="video_src">
+                            </div>
+                        @endif
                     </div>
 
                     <!-- Segunda Coluna -->

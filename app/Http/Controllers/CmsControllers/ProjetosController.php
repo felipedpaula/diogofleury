@@ -34,6 +34,7 @@ class ProjetosController extends Controller
     public function store(Request $request){
 
         $data = $request->only([
+            'tipo',
             'titulo',
             'resumo',
             'conteudo',
@@ -42,6 +43,7 @@ class ProjetosController extends Controller
         ]);
 
         $rules = [
+            'tipo' => ['numeric', 'required', 'in:1,2'],
             'titulo' => ['required', 'string', 'max:255'],
             'resumo' => ['nullable', 'string'],
             'conteudo' => ['nullable', 'string'],
@@ -67,6 +69,7 @@ class ProjetosController extends Controller
         try {
 
             $project = new Projeto([
+                'tipo' => $data['tipo'],
                 'titulo' => $data['titulo'],
                 'slug' => $data['slug'],
                 'resumo' =>  $data['resumo'],
@@ -90,7 +93,6 @@ class ProjetosController extends Controller
         $galerias = $this->galeria->getGalerias();
 
         $this->dadosPagina = [
-            'tituloPagina' => 'Editar Projeto: '.$projeto->titulo,
             'projeto' => $projeto,
             'galerias' => $galerias
         ];
@@ -102,15 +104,18 @@ class ProjetosController extends Controller
         $projeto = Projeto::findOrFail($id);
 
         $data = $request->only([
+            'tipo',
             'titulo',
             'resumo',
             'conteudo',
             'img_src',
+            'video_src',
             'galeria_id',
             'status',
         ]);
 
         $rules = [
+            'tipo' => ['numeric', 'required', 'in:1,2'],
             'titulo' => ['required', 'string', 'max:255'],
             'resumo' => ['nullable', 'string'],
             'conteudo' => ['nullable', 'string'],
@@ -123,6 +128,14 @@ class ProjetosController extends Controller
         } else {
             unset($data['img_src']); // Não substituir a imagem se nenhuma nova for enviada
         }
+
+        if ($request->hasFile('video_src')) {
+            $path = Storage::disk('public')->put('/videos', $request->file('video_src'));
+            $data['video_src'] = Storage::url($path);
+        } else {
+            unset($data['video_src']);
+        }
+
 
         $data['slug'] = Str::slug($request->titulo);
         $validator = Validator::make($data, $rules);

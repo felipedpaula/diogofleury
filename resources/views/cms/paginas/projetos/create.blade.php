@@ -26,6 +26,13 @@
                     <!-- Primeira Coluna -->
                     <div class="col-md-6 col-sm-12">
                         <div class="form-group">
+                            <label for="tipo">Tipo:</label>
+                            <select name="tipo" class="form-control" id="tipo">
+                                <option value="1">Foto</option>
+                                <option value="2">Vídeo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="titulo">Título:</label>
                             <input name="titulo" type="text" class="form-control" id="titulo">
                         </div>
@@ -34,7 +41,7 @@
                             <input name="resumo" type="text" class="form-control" id="resumo">
                         </div>
                         <div class="form-group">
-                            <label for="img_src">Imagem de destaque:</label>
+                            <label for="img_src">Thumb de destaque:</label>
                             <img  src="" alt="preview" width="220px" height="300px" id="preview" class="img-fluid"/>
                             <input type="file" name="img_src" class="form-control" id="img_src">
                         </div>

@@ -32,6 +32,7 @@
             <thead>
                 <tr>
                     <th>Título</th>
+                    <th width=100>Tipo</th>
                     <th width=100>Ações</th>
                 </tr>
 
@@ -39,6 +40,7 @@
                     @foreach ($projetos as $projeto)
                     <tr>
                         <td>{{$projeto->titulo}}</td>
+                        <td>{{$projeto->tipo === 1 ? 'Foto' : 'Vídeo'}}</td>
                         <td>
                             <a href="{{route('admin.projetos.edit', $projeto->id)}}" class="btn btn-sm btn-warning">Editar</a>
                         </td>

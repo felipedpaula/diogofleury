@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('projetos', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('tipo')->nullable(); // 1 - Fotos | 2 - Vídeos
             $table->string('titulo');
             $table->string('slug');
             $table->text('resumo')->nullable();
             $table->text('conteudo')->nullable();
             $table->string('img_src')->nullable();
+            $table->string('video_src')->nullable();
             $table->unsignedBigInteger('galeria_id')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();

@@ -73,6 +73,11 @@ class DestaqueController extends Controller
             $data['img_src']= 'assets/site/images/main-slider/slider-2.jpg';
         }
 
+        if($request->file('video_src')){
+            $path =  Storage::disk('public')->put('/videos', $request->file('video_src'));
+            $data['video_src']= Storage::url($path);
+        }
+
         if($request->date_start){
             $date_start = \DateTime::createFromFormat('d/m/Y H:i:s', $request->date_start.':00');
             $data['date_start'] = $date_start->format('Y-m-d H:i:s');
@@ -102,7 +107,8 @@ class DestaqueController extends Controller
                 'date_end' => $request->date_end ? $data['date_end'] : null,
                 'ordem' => $request->ordem ? $data['ordem'] : null,
                 'status' => $data['status'],
-                'img_src' => $data['img_src']
+                'img_src' => $data['img_src'],
+                'video_src' => $data['video_src']
             ]);
             $destaque->save();
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('url_link')->nullable();
             $table->string('txt_link')->nullable();
             $table->string('img_src')->nullable();
+            $table->string('video_src')->nullable();
             $table->dateTime('date_start')->nullable();
             $table->dateTime('date_end')->nullable();
             $table->integer('order')->default(0);

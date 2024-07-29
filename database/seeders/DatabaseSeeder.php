@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         DB::table('usuarios')->insert([
             'nome' => 'Diogo',
             'tipo_id' => 1,
-            'email' => 'diogo.fleury@gmail.com',
+            'email' => 'diogopfa@gmail.com',
             'password' => Hash::make('12345678'),
             'status' => 1,
             'created_at' => now(),

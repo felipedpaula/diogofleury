@@ -85,10 +85,20 @@
                             <input type="file" name="img_src" class="form-control" id="img_src">
                             <img src="{{asset($destaque->img_src)}}" alt="preview" width="220px" height="300px" id="preview" class="img-fluid"/>
                         </div>
+
                         <div class="mt-3 alert alert-primary">
                             <small>Priorize imagens no formato WEPB para melhor desempenho do site. Você pode converter suas imagens no site:
                             <a target="_blank" href="https://convertio.co/pt/jpg-webp/">Convertio</a></small>
                         </div>
+
+                        <div class="form-group">
+                            <label for="video_src">Vídeo</label><br>
+                            <video id="video" width="300">
+                                <source src="{{ asset($destaque->video_src) }}" type="video/mp4">
+                            </video>
+                            <input type="file" name="video_src" class="form-control" id="video_src">
+                        </div>
+
                     </div>
                 </div>
 

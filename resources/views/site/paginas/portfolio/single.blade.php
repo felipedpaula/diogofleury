@@ -8,6 +8,14 @@
                 <div class="projeto-details mt-lg mb-lg">
                     {{ $projeto->resumo }}
                 </div>
+                @if ($projeto->tipo === 2)
+                <div class="projeto-video">
+                    <video controls>
+                        <source src="{{ asset($projeto->video_src) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                @endif
                 <div class="projeto-details">
                     {!! $projeto->conteudo !!}
                 </div>
