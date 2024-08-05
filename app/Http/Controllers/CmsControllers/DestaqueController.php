@@ -75,7 +75,9 @@ class DestaqueController extends Controller
 
         if($request->file('video_src')){
             $path =  Storage::disk('public')->put('/videos', $request->file('video_src'));
-            $data['video_src']= Storage::url($path);
+            $data['video_src'] = Storage::url($path);
+        } else{
+            $data['video_src'] = null;
         }
 
         if($request->date_start){

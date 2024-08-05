@@ -7,7 +7,7 @@
         <li class="active vcenter">
             <div class="item lightbox">
                 <figure class="legenda-destaque-home">
-                    @if ($item->video_src !== '')
+                    @if ($item->video_src != '' || $item->video_src != null)
                     <video autoplay loop muted>
                         <source src="{{ asset($item->video_src) }}" type="video/mp4">
                         Your browser does not support the video tag.
