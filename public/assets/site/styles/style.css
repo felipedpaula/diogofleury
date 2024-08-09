@@ -1,3 +1,33 @@
+@font-face {
+    font-family: 'Gravesend Sans';
+    src: url('../fonts/43399.otf') format('opentype');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gravesend Sans';
+    src: url('../fonts/43400.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gravesend Sans';
+    src: url('../fonts/43401.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+#main-header a.brand .name {
+    font-family: 'Gravesend Sans', sans-serif;
+    font-weight: bold;
+}
+#main-header a.brand .title {
+    font-family: 'Gravesend Sans', sans-serif;
+    font-weight: lighter;
+}
+#main-header .main-nav ul li {
+    font-family: 'Gravesend Sans', sans-serif;
+    font-weight: normal;
+}
 .legenda-destaque-home figcaption {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -5,6 +35,9 @@
 .legenda-destaque-home a:hover {
     color: #888;
     text-decoration: none;
+}
+.legenda-destaque-home video{
+    max-width: 100%;
 }
 .social-links {
     margin-top: 25px;
@@ -39,4 +72,13 @@
     color: #B6B6B6;
     font-size: 16px !important;
     margin-bottom: 10px;
+}
+.projeto-video {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+.projeto-video video {
+    max-width: 100%;
 }

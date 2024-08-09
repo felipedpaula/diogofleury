@@ -26,7 +26,8 @@ use App\Http\Controllers\CmsControllers\ContatoController;
 */
 
 Route::get('/', [SiteHomeController::class, 'index'])->name('home');
-Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+Route::get('/film', [PortfolioController::class, 'indexFilm'])->name('portfolio.film');
+Route::get('/photography', [PortfolioController::class, 'indexPhotography'])->name('portfolio.photography');
 Route::get('/portfolio/{slug}', [PortfolioController::class, 'single'])->name('portfolio.single');
 Route::get('/sobre', [SobreSiteController::class, 'index'])->name('sobre');
 Route::get('/contato', [ContatoSiteController::class, 'index'])->name('contato');

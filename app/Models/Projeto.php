@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Projeto extends Model
 {
     protected $fillable = [
+        'tipo',
         'titulo',
         'slug',
         'resumo',
         'conteudo',
         'img_src',
+        'video_src',
         'galeria_id',
         'status',
     ];
@@ -32,8 +34,13 @@ class Projeto extends Model
         ->paginate($perPage);
     }
 
-    public function getProjetos() {
-        $projetos = Projeto::orderBy('created_at', 'desc')->get();
+    public function getProjetosPhotography() {
+        $projetos = Projeto::orderBy('created_at', 'desc')->where('tipo', 1)->get();
+        return $projetos;
+    }
+
+    public function getProjetosFilm() {
+        $projetos = Projeto::orderBy('created_at', 'desc')->where('tipo', 2)->get();
         return $projetos;
     }
 }
