@@ -39,7 +39,7 @@
                     <input required type="text" name="nome" class="form-control">
                     <label>E-mail *</label>
                     <input required type="email" name="email" class="form-control">
-                    <label>Telefone *</label>
+                    <label>Telefone</label>
                     <input type="number" name="tel" class="form-control">
                     <label>Como posso ajudar? *</label>
                     <textarea required name="mensagem" class="form-control"></textarea>
