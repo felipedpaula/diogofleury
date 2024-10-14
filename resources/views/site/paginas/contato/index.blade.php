@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="fs vcenter">
-        <div style="background-image: url({{asset('template/images/contact/01.jpg')}});" class="bg faded-more"></div>
+        <div style="background-image: url({{asset('template/images/contact/01.webp')}});" class="bg faded-more"></div>
         <div class="container">
         <div class="row">
             <div class="col-md-5">
