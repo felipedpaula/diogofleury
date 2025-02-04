@@ -50,6 +50,7 @@ class DestaqueController extends Controller
             'date_end',
             'ordem',
             'status',
+            'video_src'
         ]);
 
         $rules = [
@@ -63,6 +64,7 @@ class DestaqueController extends Controller
             'date_end' => ['nullable', 'date'],
             'ordem' => ['nullable'],
             'status' => ['required', 'in:0,1'],
+            'video_src' => ['required', 'string', 'max:255']
         ];
 
         if($request->file('img_src')){
@@ -73,12 +75,12 @@ class DestaqueController extends Controller
             $data['img_src']= 'assets/site/images/main-slider/slider-2.jpg';
         }
 
-        if($request->file('video_src')){
-            $path =  Storage::disk('public')->put('/videos', $request->file('video_src'));
-            $data['video_src'] = Storage::url($path);
-        } else{
-            $data['video_src'] = null;
-        }
+        // if($request->file('video_src')){
+        //     $path =  Storage::disk('public')->put('/videos', $request->file('video_src'));
+        //     $data['video_src'] = Storage::url($path);
+        // } else{
+        //     $data['video_src'] = null;
+        // }
 
         if($request->date_start){
             $date_start = \DateTime::createFromFormat('d/m/Y H:i:s', $request->date_start.':00');
@@ -103,13 +105,13 @@ class DestaqueController extends Controller
                 'titulo' => $data['titulo'],
                 'subtitulo' => $data['subtitulo'],
                 'conteudo' => $request->conteudo ? $data['conteudo'] : null,
-                'url_link' => $data['url_link'],
-                'txt_link' => $data['txt_link'],
+                'url_link' => $request->conteudo ? $data['url_link'] : null,
+                'txt_link' => $request->conteudo ? $data['txt_link'] : null,
                 'date_start' => $request->date_start ? $data['date_start'] : null,
                 'date_end' => $request->date_end ? $data['date_end'] : null,
                 'ordem' => $request->ordem ? $data['ordem'] : null,
                 'status' => $data['status'],
-                'img_src' => $data['img_src'],
+                'img_src' => $request->conteudo ? $data['img_src'] : null,
                 'video_src' => $data['video_src']
             ]);
             $destaque->save();
@@ -147,6 +149,7 @@ class DestaqueController extends Controller
             'date_end',
             'order',
             'status',
+            'video_src'
         ]);
 
         $rules = [
@@ -160,6 +163,7 @@ class DestaqueController extends Controller
             'date_end' => ['nullable', 'date'],
             'order' => ['nullable'],
             'status' => ['required', 'in:0,1'],
+            'video_src' => ['required', 'string', 'max:255']
         ];
 
         // Verificar se um novo arquivo foi enviado

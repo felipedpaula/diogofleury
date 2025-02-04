@@ -6,7 +6,7 @@
         @foreach ($destaques_home as $item)
         <li class="active vcenter">
             <div class="item lightbox">
-                <figure class="legenda-destaque-home">
+                {{-- <figure class="legenda-destaque-home">
                     @if ($item->video_src != '' || $item->video_src != null)
                     <video autoplay loop muted>
                         <source src="{{ asset($item->video_src) }}" type="video/mp4">
@@ -19,7 +19,16 @@
                     @if (isset($item->txt_link) && $item->txt_link != '')
                     <a href="{{$item->url_link}}">{{$item->txt_link}}</a>
                     @endif
-                </figure>
+                </figure> --}}
+                <iframe 
+                    width="760" 
+                    height="420" 
+                    src="https://www.youtube.com/embed/{{$item->video_src}}&amp;controls=0" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </li>
         @endforeach

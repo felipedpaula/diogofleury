@@ -56,17 +56,22 @@
 
                     <!-- Segunda Coluna -->
                     <div class="col-md-6 col-sm-12">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="description">Texto do Link</label>
                             <input name="txt_link" type="text" class="form-control" id="txt_link">
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
+                            <label for="description">Código YouTube</label>
+                            <input name="video_src" type="text" class="form-control" id="video_src">
+                        </div>
+
+                        {{-- <div class="form-group">
                             <label for="url_link">Link</label>
                             <input name="url_link" type="text" class="form-control" id="url_link">
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="img_src">Imagem</label>
                             <input type="file" name="img_src" class="form-control" id="img_src">
                             <img src="#" alt="preview" width="220px" height="300px" id="preview" class="img-fluid"/>
@@ -80,7 +85,7 @@
                         <div class="form-group">
                             <label for="video_src">Vídeo</label>
                             <input type="file" name="video_src" class="form-control" id="video_src">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

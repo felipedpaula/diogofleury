@@ -69,35 +69,40 @@
                     <!-- Segunda Coluna -->
                     <div class="col-md-6 col-sm-12">
                         <div class="form-group">
+                            <label for="description">Código YouTube</label>
+                            <input name="video_src" type="text" class="form-control" id="video_src" value="{{isset($destaque->video_src) === true ? $destaque->video_src : ''}}">
+                        </div> 
+
+                        {{-- <div class="form-group">
                             <label for="description">Texto do Link</label>
                             <input name="txt_link" type="text" class="form-control" id="txt_link" value="{{isset($destaque->txt_link) === true ? $destaque->txt_link : ''}}">
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="url_link">Link</label>
                             <input name="url_link" type="text" class="form-control" id="url_link"
                             value="{{isset($destaque->url_link) === true ? $destaque->url_link : ''}}"
                             >
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="img_src">Imagem</label>
                             <input type="file" name="img_src" class="form-control" id="img_src">
                             <img src="{{asset($destaque->img_src)}}" alt="preview" width="220px" height="300px" id="preview" class="img-fluid"/>
-                        </div>
+                        </div> --}}
 
-                        <div class="mt-3 alert alert-primary">
+                        {{-- <div class="mt-3 alert alert-primary">
                             <small>Priorize imagens no formato WEPB para melhor desempenho do site. Você pode converter suas imagens no site:
                             <a target="_blank" href="https://convertio.co/pt/jpg-webp/">Convertio</a></small>
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="video_src">Vídeo</label><br>
                             <video id="video" width="300">
                                 <source src="{{ asset($destaque->video_src) }}" type="video/mp4">
                             </video>
                             <input type="file" name="video_src" class="form-control" id="video_src">
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
