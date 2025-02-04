@@ -1,6 +1,10 @@
 @extends('site.layouts.index')
 
 @section('content')
+    
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
 
     <div class="fs vcenter">
         <div style="background-image: url({{asset('template/images/contact/01.webp')}});" class="bg faded-more"></div>
@@ -33,21 +37,45 @@
                         </button>
                     </div>
                 @endif
-                <form action="{{route('sendmsg')}}" method="post" class="form mt-md">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <h4>Ocoreu um erro!</h4>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                @endif
+
+                <form action="{{route('sendmsg')}}" method="post" class="form mt-md" id="contact-form">
                     @csrf
                     <label>Qual o seu nome? *</label>
-                    <input required type="text" name="nome" class="form-control">
+                    <input required type="text" name="nome" class="form-control" value="{{old("nome")}}">
                     <label>E-mail *</label>
-                    <input required type="email" name="email" class="form-control">
+                    <input required type="email" name="email" class="form-control" value="{{old("email")}}">
                     <label>Telefone</label>
-                    <input type="number" name="tel" class="form-control">
+                    <input type="number" name="tel" class="form-control" value="{{old("tel")}}">
                     <label>Como posso ajudar? *</label>
                     <textarea required name="mensagem" class="form-control"></textarea>
-                    <button type="submit" class="btn btn-default">Enviar</button><span class="p-md">* Esses campos são obrigatórios</span>
+                    <button data-sitekey="{{env("GOOGLE_RECAPTCHA_KEY")}}" data-callback='onSubmit' data-action='submit' type="submit" class="g-recaptcha btn btn-default">Enviar</button>
+                    <span class="p-md">* Esses campos são obrigatórios</span>
                 </form>
             </div>
         </div>
         </div>
     </div>
+
+    <script>
+        function onSubmit(token) {
+          document.getElementById("contact-form").submit();
+        }
+    </script>
 
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\SiteControllers;
+use App\Rules\ReCaptcha;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Models\Contato;
@@ -24,6 +25,7 @@ class ContatoController extends Controller
             'email' => 'nullable|email',
             'tel' => 'nullable',
             'mensagem' => 'required',
+            'g-recaptcha-response' => [new ReCaptcha()]
         ]);
 
         try {
@@ -32,7 +34,7 @@ class ContatoController extends Controller
             return back()->with('error', 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.');
         }
 
-        Mail::to('felipeppdev@gmail.com')->send(new ContatoRecebido($dados));
+        // Mail::to('felipeppdev@gmail.com')->send(new ContatoRecebido($dados));
         return back()->with('success', 'Sua mensagem foi enviada com sucesso!');
     }
 }
